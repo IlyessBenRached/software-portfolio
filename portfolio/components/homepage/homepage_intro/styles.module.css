@@ -1,0 +1,39 @@
+/* styles/text_styles.module.css */
+.textContainer {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .textContainer.loaded {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .slideInHeader {
+    transform: translateY(-20px);
+    transition: transform 0.8s ease-in-out, opacity 1s ease-in-out;
+  }
+  
+  .slideInParagraph {
+    transform: translateY(20px);
+    transition: transform 0.8s ease-in-out, opacity 1s ease-in-out;
+  }
+  
+  .textContainer.loaded .slideInHeader {
+    transform: translateY(0);
+  }
+  
+  .textContainer.loaded .slideInParagraph {
+    transform: translateY(0);
+  }
+  
+  .socialIcons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px;
+    gap: 20px;
+    /* Adjust the padding as needed for your desired spacing */
+  }
+  

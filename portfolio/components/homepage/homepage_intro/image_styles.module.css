@@ -1,0 +1,31 @@
+/* styles/image_styles.module.css */
+.imageContainer {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease-in-out;
+}
+
+.imageContainer.loaded {
+  opacity: 1;
+  visibility: visible;
+}
+
+.imageContainer img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  box-shadow: none;
+  transform: translateY(20px);
+  transition: transform 0.8s ease-in-out, opacity 1s ease-in-out;
+}
+
+.imageContainer.loaded img {
+  transform: translateY(0);
+}
+  
+  @media (max-width: 600px) {
+    .imageContainer {
+      display: none;
+    }
+  }
+  
