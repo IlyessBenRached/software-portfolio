@@ -1,0 +1,89 @@
+.skill_title {
+    font-family: 'Rubik Scribble' !important;
+    color: black;
+    background-color: #f0f0f0;
+
+    font-size: 1.9rem !important;
+    padding: 20px;
+    font-weight: bold;
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* or 'center' */
+    justify-content: center;
+    /* or 'center' */
+    margin-left: 50px;
+}
+
+
+
+.skills_icons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 20px;
+    gap: 20px;
+}
+
+.icons {
+    width: 50px;
+    height: 50px;
+}
+
+.skill_descriptions {
+    font-size: 1.5em;
+    line-height: 1.5;
+    font-weight: bold;
+    color: #000;
+    background-color: #fff;
+    /* seek explanation of this prop */
+    list-style: none;
+    padding: 0;
+    font-family: 'Raleway, sans-serif';
+}
+
+.skill_descriptions li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 30px;
+    /* Adjust the padding based on the desired icon size */
+}
+
+.skill_descriptions li::before {
+    content: "🔷";
+    /* Add your desired icon or use Unicode characters */
+    position: absolute;
+    left: 0;
+}
+
+.textContainer {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.textContainer.appear {
+    opacity: 1;
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 600px) {
+    .skill_title {
+        font-size: 1.2rem !important;
+        margin-left: 20px;
+    }
+
+    .skills_icons img {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: 'center';
+
+    }
+
+    .skill_descriptions li {
+        font-size: 1.2rem;
+        padding-left: 10px;
+    }
+
+
+}

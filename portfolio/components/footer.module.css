@@ -1,0 +1,41 @@
+/* styles.css */
+
+.contact_stack {
+    background-color: #333;
+    color: #fff;
+
+    text-align: center;
+    padding: 80px;
+    margin-top: 5rem;
+    /* Add margin to the top */
+}
+
+.footer_content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.contact_info,
+.website_links,
+.social_icons {
+    flex: 1;
+}
+
+.social_icon {
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.social_icon img {
+    width: 30px;
+    height: 30px;
+}
+
+.social_icon a:hover img {
+    filter: brightness(70%);
+}
+
+.copyright {
+    margin-top: 20px;
+}
