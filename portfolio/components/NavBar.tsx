@@ -1,5 +1,3 @@
-// navbar
-
 import React from "react";
 import Link from "next/link";
 import AppBar from "@mui/material/AppBar";
@@ -16,6 +14,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { useTheme } from "@mui/material/styles";
 
 interface Props {
   window?: () => Window;
@@ -35,6 +34,7 @@ const navItems = [
 const DrawerAppBar = (props: Props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const theme = useTheme();
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -49,11 +49,17 @@ const DrawerAppBar = (props: Props) => {
       <List>
         {navItems.map((item) => (
           <ListItem key={item.text} disablePadding>
-            <Link href={item.path}>
+            <Link href={item.path} passHref>
               <ListItemButton
                 sx={{
                   textAlign: "center",
                   fontFamily: "Roboto Serif, sans-serif",
+                  [theme.breakpoints.down("sm")]: {
+                    "& .span": {
+                      textDecoration: "none",
+                      color: "black",
+                    },
+                  },
                 }}
               >
                 <ListItemText primary={item.text} />

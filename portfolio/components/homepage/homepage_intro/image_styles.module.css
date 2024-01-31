@@ -22,10 +22,16 @@
 .imageContainer.loaded img {
   transform: translateY(0);
 }
-  
-  @media (max-width: 600px) {
-    .imageContainer {
-      display: none;
-    }
+@media (max-width: 600px) {
+  .imageContainer {
+    display: none;
   }
-  
+}
+@media (max-width: 899px) {
+  .imageContainer {
+    max-width: 80%;
+    /* Adjust the maximum width of the images */
+    max-height: 70%;
+    /* Add a small margin around the images */
+  }
+}

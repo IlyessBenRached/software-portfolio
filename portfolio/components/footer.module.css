@@ -8,6 +8,8 @@
     padding: 80px;
     margin-top: 5rem;
     /* Add margin to the top */
+    width: 100%;
+        box-sizing: border-box;
 }
 
 .footer_content {

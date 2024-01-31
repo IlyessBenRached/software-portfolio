@@ -54,12 +54,8 @@ const SkillsScraping = () => {
     return (
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={0}>
-          <Grid item xs={12} md={4}>
-            <Item >
-                <ImageContainer />
-            </Item>
-          </Grid>
           <Grid item xs={12} md={8}>
+            
             <Item >
               <SkillScraping
                 title="Web Scraping and Data Extraction"
@@ -77,6 +73,11 @@ const SkillsScraping = () => {
                     'Delivering actionable information through web scraping.',
                   ]}
               />
+            </Item>
+          </Grid>
+          <Grid item xs={12} md={4}>
+          <Item >
+                <ImageContainer />
             </Item>
           </Grid>
         </Grid>

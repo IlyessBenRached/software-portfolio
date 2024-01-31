@@ -40,12 +40,13 @@ const TextContent = () => {
           color: 'black',
           textAlign: 'justify',
           marginTop: '10px',
-          marginLeft: '20px',
+          margin: '30px',
           fontWeight: 'bold',
           transition: 'opacity 1s ease-in-out',
           fontSize:{
             xs:'1.2rem',
-            sm:'1.2rem',
+            sm:'1rem',
+
           }
         }}
       >

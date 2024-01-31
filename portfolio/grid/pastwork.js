@@ -4,6 +4,8 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from "@mui/material/Typography";
 import ImageProjects from '../components/homepage/homepage_pastwork_component/pastwork_details';
+import Link from 'next/link';
+
 
 export default function SimpleContainer() {
   return (
@@ -28,15 +30,19 @@ export default function SimpleContainer() {
             '@media (max-width: 600px)': {
               width: '90%', // Set a smaller width for screens less than 600px wide
             },
+            textDecoration:'none'
           }}
         >
           <Typography variant="h4" align="center" gutterBottom>
-            My Recent Work
+            Want to Hire me ?
           </Typography>
-          <Typography align="center" paragraph>
-            Here are a few past projects I've worked on. Want to Hire me? Email me.
+          <Typography align="center" paragraph >
+          I'm available for new opportunities. Feel free to reach out if you have any questions or if you'd like to discuss potential collaborations.
+          <Link href="/contact">
+             Contact Me
+          </Link>{' '}
           </Typography>
-          <ImageProjects />
+         {/*  <ImageProjects /> */}
         </Box>
       </Container>
     </React.Fragment>

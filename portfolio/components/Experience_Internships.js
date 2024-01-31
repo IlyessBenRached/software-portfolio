@@ -173,7 +173,7 @@ export default function ResponsiveStack() {
   };
 
   return (
-    <Stack direction={{ xs: 'column', sm: 'row' }} spacing={{ xs: 1, sm: 2, md: 6 }} padding='5rem' justifyContent='space-evenly'>
+    <Stack direction={{ xs: 'column', sm: 'row' }} spacing={{ xs: 1, sm: 2, md: 6 }} padding='3rem' justifyContent='space-evenly'>
       {data.map((item, index) => (
         
         <Item

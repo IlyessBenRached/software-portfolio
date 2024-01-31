@@ -19,7 +19,7 @@ const Item = styled(Paper)(({ theme }) => ({
   height: '80vh',
   border: 'none', // Remove the border property
   boxShadow: 'none', // removes the shadow(border of item from mui)
-  '@media (max-width: 600px)': {
+  '@media (max-width: 845px)': {
     flexDirection: 'row', // Set to 'row' for smaller screens
     justifyContent: 'space-around', // Adjust the alignment as needed
     alignItems: 'center', // Center items vertically

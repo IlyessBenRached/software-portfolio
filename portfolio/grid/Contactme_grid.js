@@ -38,15 +38,18 @@ const App = () => {
     setFile(selectedFile);
   };
 
-  const handleButtonClick = () => {
-    // Handle button click logic
-
-    // Assuming your form submission logic is successful
-    // For demonstration purposes, let's simulate a successful submission
-    // Replace the following line with your actual submission logic
-    setTimeout(() => {
-      setFormSubmitted(true);
-    }, 1000);
+  const handleButtonClick = async () => {
+    const formData = new FormData();
+    formData.append('name', document.getElementById('exampleFormControlInput1').value);
+    formData.append('email', document.getElementById('exampleFormControlInput2').value);
+    //exampleFormControlSelect1
+    formData.append('Subject', document.getElementById('exampleFormControlSelect1').value); 
+    formData.append('projectType', projectType);
+    formData.append('exampleFormControlFile1', document.getElementById('exampleFormControlFile1').value);
+    // Log FormData entries
+    for (const entry of formData.entries()) {
+      console.log(entry);
+    }
   };
 
   return (
