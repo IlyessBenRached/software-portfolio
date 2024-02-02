@@ -84,8 +84,9 @@ WSGI_APPLICATION = 'portfolio_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'web_portfolio',
-        'USER': 'root',
+        'NAME': 'samgloba_ilyes_portfolio',
+        'USER': 'samgloba_ilyes',
+        'PASSWORD': 'P2l=rK!!D2Sd',
         'HOST': 'localhost',
         'PORT': '3306',
     }
