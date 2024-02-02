@@ -25,12 +25,20 @@ SECRET_KEY = 'django-insecure-39=8b=kt&2h)b#$8t5&=$2ubll%r^6%xmg&*@*7#3(#2rvhn6^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'localhost:3000', '*']
-
-
+# CORS Configuration
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+    # 'http://localhost:3000/contact',
+    # Add other trusted origins as needed
+]
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000',
+                        # 'http://localhost:3000/contact'
+                        ]
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'blog_form',
     'corsheaders',
     'django.contrib.admin',
@@ -127,7 +135,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CORS_ALLOW_ALL_ORIGINS = False
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}

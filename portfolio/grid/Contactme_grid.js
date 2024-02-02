@@ -7,6 +7,9 @@ import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Button from '../components/Contactme/button';
+import Cookies from 'js-cookie';
+import axios from 'axios';
+
 
 const FormContainer = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -22,11 +25,13 @@ const FormContainer = styled(Paper)(({ theme }) => ({
   gap: theme.spacing(2), // Adds spacing between form elements
 }));
 
+
 const App = () => {
   const [subject, setSubject] = useState('');
   const [projectType, setProjectType] = useState('');
   const [file, setFile] = useState(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const csrfToken = Cookies.get('csrftoken');
 
   const handleSubjectChange = (event) => {
     setSubject(event.target.value);
@@ -42,15 +47,36 @@ const App = () => {
     const formData = new FormData();
     formData.append('name', document.getElementById('exampleFormControlInput1').value);
     formData.append('email', document.getElementById('exampleFormControlInput2').value);
-    //exampleFormControlSelect1
-    formData.append('Subject', document.getElementById('exampleFormControlSelect1').value); 
-    formData.append('projectType', projectType);
-    formData.append('exampleFormControlFile1', document.getElementById('exampleFormControlFile1').value);
+    formData.append('subject', document.getElementById('exampleFormControlSelect1').value); 
+    /* formData.append('exampleFormControlFile1', document.getElementById('exampleFormControlFile1').files[0]); */
+  
+
+    const ProjectDetail = document.getElementById('exampleFormControlSelect2');
+    if (ProjectDetail) {
+      formData.append('projectdetail', document.getElementById('exampleFormControlSelect2').value); 
+    } else {
+      formData.append('projectdetail', 'User didnt chose project type');
+    }
+
     // Log FormData entries
     for (const entry of formData.entries()) {
       console.log(entry);
     }
+    
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/submitform/', formData, {
+        headers:{
+          "X-CSRFTOKEN": csrfToken,
+        },
+      });
+      console.log(response.data);
+      setFormSubmitted(true);
+    } catch (error) {
+      console.error('Error submitting form', error);
+    }
   };
+
+  
 
   return (
     <React.Fragment>
@@ -127,7 +153,7 @@ const App = () => {
                     </div>
                   )}
 
-                  <div style={{ width: '100%' }}>
+                  {/* <div style={{ width: '100%' }}>
                     <label htmlFor="exampleFormControlFile1" className="form-label">
                       Attach File
                     </label>
@@ -138,7 +164,7 @@ const App = () => {
                       onChange={handleFileChange}
                       style={{ width: '100%' }}
                     />
-                  </div>
+                  </div> */}
                   <Button onClick={handleButtonClick} style={{ width: '100%' }}>
                     Submit
                   </Button>
